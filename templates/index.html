@@ -1,0 +1,404 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- noUiSlider CSS -->
+<link href="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.css" rel="stylesheet">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .card {
+        background: rgb(36, 93, 109);
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(165, 225, 255, 0.5);
+    }
+    .card-header {
+        background: #00aaff;
+        color: #ffffff;
+        border-radius: 10px 10px 0 0;
+    }
+    .feature-icon {
+        color: #00aaff;
+        width: 20px;
+        margin-right: 5px;
+    }
+    .btn-primary {
+        background: #00aaff;
+        border: none;
+        transition: background 0.3s, transform 0.3s;
+    }
+    .btn-primary:hover {
+        background: #66ccff;
+        transform: scale(1.05);
+    }
+    .btn-outline-primary {
+        color: #00aaff;
+        border-color: #00aaff;
+        transition: all 0.3s;
+    }
+    .btn-outline-primary:hover {
+        background: #00aaff;
+        color: #ffffff;
+    }
+    .pulse {
+        animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+        100% { transform: scale(1); }
+    }
+    #map {
+        height: 500px;
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .map-container {
+        margin-top: 20px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+    }
+    .gm-style .gm-style-iw-c {
+        padding: 0 !important;
+        border-radius: 10px !important;
+    }
+    .gm-style .gm-style-iw-d {
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+    .gm-style-iw button.gm-ui-hover-effect {
+        top: 2px !important;
+        right: 2px !important;
+        width: 24px !important;
+        height: 24px !important;
+    }
+    .badge {
+        background: #00aaff;
+    }
+    .text-primary {
+        color: #00aaff !important;
+    }
+    .text-success {
+        color: #28a745 !important;
+    }
+    .text-muted {
+        color: #6c757d !important;
+    }
+    .no-recommendations {
+        color: #ffffff;
+    }
+    .no-recommendations i {
+        color: #00aaff;
+    }
+    .no-recommendations h3 {
+        color: #ffffff;
+    }
+    .no-recommendations p {
+        color: #cccccc;
+    }
+    @media (max-width: 600px) {
+        .container-fluid {
+            padding: 10px;
+        }
+        .card-header h2 {
+            font-size: 1.5rem;
+        }
+        .card-body {
+            padding: 10px;
+        }
+    }
+</style>
+
+<div class="container-fluid py-4">
+    <div class="recommendation-container animate__animated animate__fadeIn">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="mb-0"><i class="fas fa-calendar-alt feature-icon"></i>Tell Us About Your Event</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="/recommended">
+                            <div class="mb-3">
+                                <label for="event_type" class="form-label fw-bold">
+                                    <i class="fas fa-glass-cheers feature-icon"></i>Event Type
+                                </label>
+                                <select class="form-select" id="event_type" name="event_type" required>
+                                    <option value="" disabled selected>Select event type</option>
+                                    <option value="Wedding">Wedding</option>
+                                    <option value="Corporate">Corporate</option>
+                                    <option value="Birthday">Birthday</option>
+                                    <option value="Conference">Conference</option>
+                                    <option value="Social Gathering">Social Gathering</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="guest_count" class="form-label fw-bold">
+                                    <i class="fas fa-users feature-icon"></i>Number of Guests
+                                </label>
+                                <input type="number" class="form-control" id="guest_count" name="guest_count" min="1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">
+                                    <i class="fas fa-money-check-alt feature-icon"></i>Budget Range (LKR)
+                                </label>
+                                <div id="budget-slider"></div>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span>Min: <span id="minBudget">15000</span> LKR</span>
+                                    <span>Max: <span id="maxBudget">300000</span> LKR</span>
+                                </div>
+                                <input type="hidden" name="min_budget" id="min_budget">
+                                <input type="hidden" name="max_budget" id="max_budget">
+                            </div>
+                            <div class="mb-3">
+                                <label for="special_requirements" class="form-label fw-bold">
+                                    <i class="fas fa-star feature-icon"></i>Special Requirements
+                                </label>
+                                <select id="special_requirements" name="special_requirements" class="form-select">
+                                    <option value="None">No special requirements</option>
+                                    <option value="Pet-Friendly">Pet-Friendly</option>
+                                    <option value="Accessible">Wheelchair Accessible</option>
+                                    <option value="Outdoor Space">Outdoor Space</option>
+                                    <option value="Catering">In-House Catering</option>
+                                    <option value="AV Equipment">AV Equipment Included</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 pulse">
+                                <i class="fas fa-search-location me-2"></i>Recommend Perfect Venues
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h3 class="mb-0"><i class="fas fa-map-marked-alt feature-icon"></i>Recommended Venues</h3>
+                    </div>
+                    <div class="card-body">
+                        {% if recommendations %}
+                            <div class="row">
+                                {% for venue in recommendations %}
+                                <div class="col-md-6 mb-3">
+                                    <div class="card h-100 animate__animated animate__fadeInUp" style="animation-delay: {{ loop.index * 0.1 }}s">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between align-items-start">
+                                                <h4 class="card-title text-primary">{{ venue.name }}</h4>
+                                                <span class="badge">
+                                                    {{ "%.0f"|format(venue.probability*100) }}% Match
+                                                </span>
+                                            </div>
+                                            <p class="card-subtitle mb-2 text-muted">
+                                                <i class="fas fa-tag me-1"></i>{{ venue.details['Venue_Type'] }} in {{ venue.details['Location'] }}
+                                            </p>
+                                            <p class="card-text text-success">
+                                                <i class="fas fa-check-circle me-1"></i>Perfect for your {{ form_data.event_type }} event
+                                            </p>
+                                            <ul class="list-group list-group-flush mb-3">
+                                                <li class="list-group-item">
+                                                    <i class="fas fa-map-marker-alt feature-icon"></i> 
+                                                    <strong>Location:</strong> {{ venue.details['Location'] }}
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <i class="fas fa-star feature-icon"></i> 
+                                                    <strong>Rating:</strong> 
+                                                    {% for i in range(venue.details['User_Rating']|int) %}
+                                                        <i class="fas fa-star text-warning"></i>
+                                                    {% endfor %}
+                                                    {% if venue.details['User_Rating'] % 1 >= 0.5 %}
+                                                        <i class="fas fa-star-half-alt text-warning"></i>
+                                                    {% endif %}
+                                                    ({{ venue.details['User_Rating'] }})
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <i class="fas fa-user-friends feature-icon"></i> 
+                                                    <strong>Capacity:</strong> Up to {{ venue.details['Capacity'] }} guests
+                                                </li>
+                                                {% if venue.details['Amenities'] %}
+                                                <li class="list-group-item">
+                                                    <i class="fas fa-list feature-icon"></i> 
+                                                    <strong>Amenities:</strong> {{ venue.details['Amenities'] }}
+                                                </li>
+                                                {% endif %}
+                                                {% if form_data.special_requirements != "None" %}
+                                                <li class="list-group-item">
+                                                    <i class="fas fa-check-circle feature-icon text-success"></i> 
+                                                    <strong>Meets Requirement:</strong> {{ form_data.special_requirements }}
+                                                </li>
+                                                {% endif %}
+                                            </ul>
+                                            <button class="btn btn-outline-primary btn-sm w-100 mt-2" 
+                                                    data-lat="{{ venue.details.get('Latitude', 6.9271) }}" 
+                                                    data-lng="{{ venue.details.get('Longitude', 79.8612) }}"
+                                                    data-name="{{ venue.name }}">
+                                                <i class="fas fa-map-marker-alt me-1"></i> View on Map
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="no-recommendations text-center py-5 animate__animated animate__fadeIn">
+                                <i class="fas fa-search fa-4x mb-3"></i>
+                                <h3>No recommendations yet</h3>
+                                <p>Fill out the form to get venue recommendations tailored to your event</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if recommendations %}
+        <div class="map-container mt-4 animate__animated animate__fadeIn">
+            <h3 class="mb-3"><i class="fas fa-map-marked-alt feature-icon"></i>Venues Location Map</h3>
+            <div id="map"></div>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- noUiSlider JS -->
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2MXdyzbpEbtQZxVLdBFQUg9qO_3ASknI&callback=initMap" async defer></script>
+    <script>
+        var budgetSlider = document.getElementById('budget-slider');
+        noUiSlider.create(budgetSlider, {
+            start: [15000, 300000],
+            connect: true,
+            step: 1000,
+            range: {
+                'min': 15000,
+                'max': 300000
+            },
+            tooltips: [true, true],
+            format: {
+                to: function (value) {
+                    return Math.round(value);
+                },
+                from: function (value) {
+                    return Number(value);
+                }
+            }
+        });
+
+        var minBudget = document.getElementById('minBudget');
+        var maxBudget = document.getElementById('maxBudget');
+        var minInput = document.getElementById('min_budget');
+        var maxInput = document.getElementById('max_budget');
+
+        budgetSlider.noUiSlider.on('update', function (values, handle) {
+            minBudget.textContent = values[0];
+            maxBudget.textContent = values[1];
+            minInput.value = values[0];
+            maxInput.value = values[1];
+        });
+
+        let map;
+        let markers = [];
+        let infoWindows = [];
+
+        function initMap() {
+            const defaultLocation = { lat: 6.9271, lng: 79.8612 };
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: defaultLocation,
+                styles: [
+                    {
+                        "featureType": "poi",
+                        "stylers": [{ "visibility": "off" }]
+                    }
+                ]
+            });
+
+            const locations = {{ map_locations | tojson | safe }};
+
+            if (locations.length > 0) {
+                const bounds = new google.maps.LatLngBounds();
+                locations.forEach((location, index) => {
+                    const marker = new google.maps.Marker({
+                        position: { lat: location.lat, lng: location.lng },
+                        map: map,
+                        title: location.name,
+                        label: {
+                            text: (index + 1).toString(),
+                            color: 'white',
+                            fontSize: '12px',
+                            fontWeight: 'bold'
+                        },
+                        icon: {
+                            url: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
+                            scaledSize: new google.maps.Size(40, 40)
+                        }
+                    });
+
+                    const infoWindow = new google.maps.InfoWindow({
+                        content: `
+                            <div style="padding: 10px;">
+                                <h4 style="margin: 0 0 5px 0; color: #00aaff;">${location.name}</h4>
+                                <p style="margin: 0 0 5px 0;"><strong>Type:</strong> ${location.type}</p>
+                                <p style="margin: 0 0 5px 0;"><strong>Rating:</strong> ${location.rating}/5</p>
+                                <p style="margin: 0 0 5px 0;"><strong>Match:</strong> ${Math.round(location.probability * 100)}%</p>
+                                <p style="margin: 0;"><strong>Address:</strong> ${location.address}</p>
+                            </div>
+                        `
+                    });
+
+                    marker.addListener('click', () => {
+                        infoWindows.forEach(iw => iw.close());
+                        infoWindow.open(map, marker);
+                    });
+
+                    markers.push(marker);
+                    infoWindows.push(infoWindow);
+                    bounds.extend(marker.getPosition());
+                });
+
+                map.fitBounds(bounds);
+            }
+
+            document.querySelectorAll('.btn-outline-primary').forEach(button => {
+                button.addEventListener('click', function() {
+                    const lat = parseFloat(this.dataset.lat);
+                    const lng = parseFloat(this.dataset.lng);
+                    const name = this.dataset.name;
+
+                    map.setCenter({lat, lng});
+                    map.setZoom(15);
+
+                    markers.forEach((marker, index) => {
+                        if (marker.getTitle() === name) {
+                            infoWindows.forEach(iw => iw.close());
+                            infoWindows[index].open(map, marker);
+                            marker.setAnimation(google.maps.Animation.BOUNCE);
+                            setTimeout(() => {
+                                marker.setAnimation(null);
+                            }, 1500);
+                        }
+                    });
+
+                    document.getElementById('map').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
+    </script>
+{% endblock %}

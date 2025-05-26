@@ -1,0 +1,327 @@
+{% extends 'base.html' %}
+{% block title %}Admin Events{% endblock %}
+{% block content %}
+<style>
+    .admin-section {
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .admin-section h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+    .form-group label {
+        display: block;
+        color: #ffffff;
+        margin-bottom: 5px;
+        font-size: 1em;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        font-size: 1em;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+    }
+    button {
+        padding: 10px 20px;
+        background: #00aaff;
+        border: none;
+        border-radius: 5px;
+        color: #ffffff;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+        margin: 10px 5px;
+    }
+    button:hover:not(:disabled) {
+        background: #66ccff;
+        transform: scale(1.05);
+    }
+    button:disabled {
+        background: #555;
+        cursor: not-allowed;
+    }
+    .spinner {
+        width: 20px;
+        height: 20px;
+        border: 3px solid #fff;
+        border-top: 3px solid #00aaff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        display: none;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    .error, .success {
+        color: #ff5555;
+        font-size: 16px;
+        text-align: center;
+        margin: 15px 0;
+    }
+    .success {
+        color: #00aaff;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    th, td {
+        padding: 10px;
+        text-align: left;
+        color: #ffffff;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    th {
+        background: rgba(0, 170, 255, 0.3);
+    }
+    .actions button {
+        margin: 0 5px;
+        padding: 5px 10px;
+        font-size: 0.9em;
+    }
+    .event-image {
+        max-width: 100px;
+        height: auto;
+        border-radius: 5px;
+    }
+    @media (max-width: 600px) {
+        .admin-section { padding: 20px; }
+        .admin-section h2 { font-size: 20px; }
+        button { font-size: 14px; width: 150px; }
+        table { font-size: 14px; }
+    }
+</style>
+
+<div class="App">
+    <main>
+        <section class="admin-section">
+            <h2>Manage Events</h2>
+            <form id="event-form">
+                <div class="form-group">
+                    <label for="title">Event Title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="start_date">Start Date</label>
+                    <input type="date" id="start_date" name="start_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Event Type</label>
+                    <select id="type" name="type" required>
+                        <option value="Festival">Festival</option>
+                        <option value="Cultural">Cultural</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Food">Food</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="target_audience">Target Audience</label>
+                    <select id="target_audience" name="target_audience" required>
+                        <option value="All">All</option>
+                        <option value="Families">Families</option>
+                        <option value="Adults">Adults</option>
+                        <option value="Children">Children</option>
+                        <option value="Tourists">Tourists</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="image_url">Image URL (Optional)</label>
+                    <input type="url" id="image_url" name="image_url">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description (Optional)</label>
+                    <textarea id="description" name="description" rows="4"></textarea>
+                </div>
+                <button type="submit">
+                    <span class="spinner" id="spinner"></span>
+                    Create Event
+                </button>
+                <button type="button" id="clear-form" style="background: #ff5555;">Clear</button>
+            </form>
+            <p id="form-message" class="error"></p>
+        </section>
+
+        <section class="admin-section">
+            <h2>Existing Events</h2>
+            <table id="events-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Audience</th>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="events-body"></tbody>
+            </table>
+            <p id="events-message" class="error"></p>
+        </section>
+    </main>
+</div>
+
+<script>
+    const eventForm = document.getElementById('event-form');
+    const eventsBody = document.getElementById('events-body');
+    const formMessage = document.getElementById('form-message');
+    const eventsMessage = document.getElementById('events-message');
+    const spinner = document.getElementById('spinner');
+
+    async function loadEvents() {
+        eventsMessage.textContent = 'Loading events...';
+        try {
+            const response = await fetch('/api/custom-events');
+            const events = await response.json();
+            eventsMessage.textContent = '';
+            eventsBody.innerHTML = '';
+
+            if (!response.ok) {
+                eventsMessage.textContent = events.error || 'Failed to load events';
+                return;
+            }
+
+            if (events.length === 0) {
+                eventsMessage.textContent = 'No upcoming events available.';
+                return;
+            }
+
+            events.forEach(event => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${event.title}</td>
+                    <td>${event.start_date}</td>
+                    <td>${event.type}</td>
+                    <td>${event.target_audience}</td>
+                    <td>${event.image_url ? `<img src="${event.image_url}" alt="${event.title}" class="event-image">` : 'No Image'}</td>
+                    <td>${event.description || 'No description'}</td>
+                    <td class="actions">
+                        <button onclick="editEvent(${event.id})">Edit</button>
+                        <button onclick="deleteEvent(${event.id})" style="background: #ff5555;">Delete</button>
+                    </td>
+                `;
+                eventsBody.appendChild(row);
+            });
+        } catch (err) {
+            eventsMessage.textContent = 'Error loading events';
+            console.error('Error:', err);
+        }
+    }
+
+    eventForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        spinner.style.display = 'inline-block';
+        eventForm.querySelector('button[type="submit"]').disabled = true;
+        formMessage.textContent = '';
+
+        const formData = {
+            title: document.getElementById('title').value,
+            start_date: document.getElementById('start_date').value,
+            type: document.getElementById('type').value,
+            target_audience: document.getElementById('target_audience').value,
+            image_url: document.getElementById('image_url').value,
+            description: document.getElementById('description').value
+        };
+
+        try {
+            const response = await fetch('/api/custom-events', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+            const result = await response.json();
+            spinner.style.display = 'none';
+            eventForm.querySelector('button[type="submit"]').disabled = false;
+
+            if (response.ok) {
+                formMessage.className = 'success';
+                formMessage.textContent = 'Event created successfully';
+                eventForm.reset();
+                loadEvents();
+            } else {
+                formMessage.textContent = result.error || 'Failed to create event';
+            }
+        } catch (err) {
+            spinner.style.display = 'none';
+            eventForm.querySelector('button[type="submit"]').disabled = false;
+            formMessage.textContent = 'Error creating event';
+            console.error('Error:', err);
+        }
+    });
+
+    document.getElementById('clear-form').addEventListener('click', () => {
+        eventForm.reset();
+        formMessage.textContent = '';
+    });
+
+    async function deleteEvent(id) {
+        if (!confirm('Are you sure you want to delete this event?')) return;
+        try {
+            const response = await fetch(`/api/custom-events/${id}`, {
+                method: 'DELETE'
+            });
+            const result = await response.json();
+            if (response.ok) {
+                eventsMessage.className = 'success';
+                eventsMessage.textContent = 'Event deleted successfully';
+                loadEvents();
+            } else {
+                eventsMessage.textContent = result.error || 'Failed to delete event';
+            }
+        } catch (err) {
+            eventsMessage.textContent = 'Error deleting event';
+            console.error('Error:', err);
+        }
+    }
+
+    async function editEvent(id) {
+        try {
+            const response = await fetch(`/api/custom-events`);
+            const events = await response.json();
+            const event = events.find(e => e.id === id);
+            if (event) {
+                document.getElementById('title').value = event.title;
+                document.getElementById('start_date').value = event.start_date;
+                document.getElementById('type').value = event.type;
+                document.getElementById('target_audience').value = event.target_audience;
+                document.getElementById('image_url').value = event.image_url || '';
+                document.getElementById('description').value = event.description || '';
+                // Note: Editing requires a separate endpoint or form submission logic
+                alert('Edit form populated. Modify and submit to create a new event. (Full edit functionality requires additional endpoint.)');
+            }
+        } catch (err) {
+            formMessage.textContent = 'Error loading event for editing';
+            console.error('Error:', err);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', loadEvents);
+</script>
+{% endblock %}

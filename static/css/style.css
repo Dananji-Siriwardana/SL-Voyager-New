@@ -1,0 +1,176 @@
+      :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --accent-color: #ff6b6b;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color)) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(to right, #ffffff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-link {
+            position: relative;
+            color: rgba(255,255,255,0.85) !important;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            color: white !important;
+            font-weight: 600;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 3px;
+            animation: underline 0.3s ease-out;
+        }
+        
+        @keyframes underline {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .form-card {
+            background: white;
+        }
+        
+        .results-card {
+            background: white;
+        }
+        
+        .card-header {
+            border-radius: 15px 15px 0 0 !important;
+            padding: 1.5rem;
+        }
+        
+        .form-card .card-header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+        
+        .results-card .card-header {
+            background: linear-gradient(to right, #2ecc71, #27ae60);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border: none;
+            padding: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(to right, #5a0cb0, #1a68e8);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+        }
+        
+        .venue-card {
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .venue-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+        
+        .badge {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+        
+        .list-group-item {
+            border: none;
+            padding: 10px 0;
+            background: transparent;
+        }
+        
+        footer {
+            background: linear-gradient(to right, var(--dark-color), #495057);
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-control, .form-select {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 12px 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(37, 117, 252, 0.25);
+        }
+        
+        .recommendation-container {
+            padding: 20px 0;
+        }
+        
+        .no-recommendations {
+            background: rgba(255,255,255,0.7);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .feature-icon {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Pulse animation for loading */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }

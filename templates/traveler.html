@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+{% block title %}Traveler Type{% endblock %}
+{% block content %}
+<style>
+    section {
+        padding: 40px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    .card-label {
+        cursor: pointer;
+        width: 200px;
+        text-align: center;
+    }
+    .card {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 170, 255, 0.5);
+    }
+    .card.selected {
+        background: rgba(0, 170, 255, 0.3);
+    }
+    .card-image {
+        width: 100%;
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+    }
+    .card-text {
+        display: block;
+        padding: 10px;
+        color: #ffffff;
+        font-size: 1em;
+    }
+    button {
+        padding: 10px 20px;
+        background: #00aaff;
+        border: none;
+        border-radius: 5px;
+        color: #ffffff;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+        margin: 20px auto;
+        display: block;
+    }
+    button:hover:not(:disabled) {
+        background: #66ccff;
+        transform: scale(1.05);
+    }
+    button:disabled {
+        background: #555;
+        cursor: not-allowed;
+    }
+    .spinner {
+        width: 20px;
+        height: 20px;
+        border: 3px solid #fff;
+        border-top: 3px solid #00aaff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        display: none;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    .error, .loading {
+        color: #ff5555;
+        font-size: 16px;
+        margin: 15px 0;
+    }
+    .loading { color: #00aaff; }
+    input[type="checkbox"] {
+        display: none;
+    }
+    @media (max-width: 600px) {
+        section { padding: 20px; }
+        h2 { font-size: 20px; }
+        .card-label { width: 150px; }
+        .card-image { height: 100px; }
+        button { font-size: 14px; width: 150px; }
+    }
+</style>
+
+<div class="App">
+    <main>
+        <section>
+            <h2>Select Traveler Type(s)</h2>
+            <p class="loading" id="loading">Loading traveler types...</p>
+            <p class="error" id="error"></p>
+            <div class="cards-container" id="traveler-types"></div>
+            <button id="next-button" disabled>
+                <span class="spinner" id="spinner"></span>
+                Next
+            </button>
+        </section>
+    </main>
+</div>
+
+<script>
+    const travelerTypesDiv = document.getElementById('traveler-types');
+    const nextButton = document.getElementById('next-button');
+    const spinner = document.getElementById('spinner');
+    const errorDiv = document.getElementById('error');
+    const loadingDiv = document.getElementById('loading');
+
+    let selectedTravelerTypes = JSON.parse(localStorage.getItem('selectedTravelerTypes')) || [];
+
+    async function loadTravelerTypes() {
+        loadingDiv.style.display = 'block';
+        errorDiv.textContent = '';
+        travelerTypesDiv.innerHTML = '';
+
+        try {
+            const response = await fetch('/options', { credentials: 'include' });
+            if (response.redirected) {
+                errorDiv.textContent = 'Please log in to view traveler types.';
+                setTimeout(() => { window.location.href = '/login'; }, 2000);
+                return;
+            }
+            const data = await response.json();
+            loadingDiv.style.display = 'none';
+
+            if (data.error) {
+                errorDiv.textContent = `Error: ${data.error}`;
+                return;
+            }
+
+            data.traveler_types.forEach(type => {
+                const label = document.createElement('label');
+                label.className = 'card-label';
+                label.innerHTML = `
+                    <input type="checkbox" value="${type}" ${selectedTravelerTypes.includes(type) ? 'checked' : ''}>
+                    <div class="card ${selectedTravelerTypes.includes(type) ? 'selected' : ''}">
+                        <div class="card-image" style="background-image: url('https://source.unsplash.com/200x175/?sri-lanka,${type.toLowerCase().replace(' ', '-')})"></div>
+                        <span class="card-text">${type}</span>
+                    </div>
+                `;
+                label.querySelector('input').addEventListener('change', (e) => {
+                    const isChecked = e.target.checked;
+                    if (isChecked) {
+                        selectedTravelerTypes.push(type);
+                    } else {
+                        selectedTravelerTypes = selectedTravelerTypes.filter(t => t !== type);
+                    }
+                    localStorage.setItem('selectedTravelerTypes', JSON.stringify(selectedTravelerTypes));
+                    label.querySelector('.card').classList.toggle('selected', isChecked);
+                    nextButton.disabled = selectedTravelerTypes.length === 0;
+                });
+                travelerTypesDiv.appendChild(label);
+            });
+            nextButton.disabled = selectedTravelerTypes.length === 0;
+        } catch (err) {
+            loadingDiv.style.display = 'none';
+            errorDiv.textContent = 'Failed to load traveler types. Please log in or try again.';
+            console.error('Error fetching traveler types:', err);
+        }
+    }
+
+    nextButton.addEventListener('click', () => {
+        if (selectedTravelerTypes.length === 0) {
+            errorDiv.textContent = 'Please select at least one traveler type';
+            return;
+        }
+        spinner.style.display = 'inline-block';
+        nextButton.disabled = true;
+        localStorage.setItem('selectedTravelerTypes', JSON.stringify(selectedTravelerTypes));
+        window.location.href = '/activity';
+    });
+
+    document.addEventListener('DOMContentLoaded', loadTravelerTypes);
+</script>
+{% endblock %}

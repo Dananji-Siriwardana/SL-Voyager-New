@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SL-VOYAGER - {% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a3d, #0d0d29);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background: #0d0d29;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            opacity: 1;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .logo img {
+            height: 50px; /* Adjust height as needed */
+            width: auto;
+            transition: transform 0.3s;
+        }
+        
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #00aaff;
+        }
+        nav a.active {
+            color: #00aaff;
+            font-weight: bold;
+        }
+        .container {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #0d0d29;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0,0,0,0.5);
+            opacity: 1;
+            z-index: 1000;
+            position: sticky;
+            bottom: 0;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
+        }
+        .error, .no-data {
+            color: #ff5555;
+            font-size: 1rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+    </style>
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <header>
+        <a class="logo" href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='logo.png') }}" alt="SL-VOYAGER Logo"></a>        {% if current_user.is_authenticated %}
+        {% endif %}
+        <nav>
+            {% if current_user.is_authenticated %}
+                <a href="{{ url_for('home') }}" class="{{ 'active' if active_page == 'home' }}">Home</a>
+                <a href="{{ url_for('traveler') }}" class="{{ 'active' if active_page == 'traveler' }}">Attractions</a>
+                <a href="{{ url_for('index') }}" class="{{ 'active' if active_page == 'recommended' }}">Hotels</a>
+                <a href="{{ url_for('forecast') }}" class="{{ 'active' if active_page == 'forecast' }}">Forecast</a>
+                {% if current_user.username == 'admin' %}
+                    <a href="{{ url_for('admin_panel') }}" class="{{ 'active' if active_page == 'admin_events' }}">Admin Events</a>
+                {% endif %}
+                <a href="{{ url_for('profile') }}" class="{{ 'active' if active_page == 'profile' }}">Profile</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('home') }}" class="{{ 'active' if active_page == 'home' }}">Home</a>
+                <a href="{{ url_for('login') }}" class="{{ 'active' if active_page == 'login' }}">Login</a>
+                <a href="{{ url_for('register') }}" class="{{ 'active' if active_page == 'register' }}">Signup</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        <p>© 2025 SL Voyager | Built with ❤️ for Sri Lanka</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav a');
+            const currentUrl = window.location.pathname;
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentUrl) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Fade-in animation for cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+        });
+    </script>
+</body>
+</html>

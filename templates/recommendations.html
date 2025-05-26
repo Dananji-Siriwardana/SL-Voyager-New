@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block title %}Recommendations{% endblock %}
+{% block content %}
+<style>
+    section {
+        padding: 40px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
+    .recommendation-card {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        padding: 15px;
+        margin: 10px 0;
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: left;
+    }
+    .recommendation-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 170, 255, 0.5);
+    }
+    .recommendation-card p {
+        color: #ffffff;
+        margin: 5px 0;
+    }
+    .error, .info {
+        color: #ff5555;
+        font-size: 16px;
+        margin: 15px 0;
+    }
+    .info { color: #00aaff; }
+    button {
+        padding: 10px 20px;
+        background: #00aaff;
+        border: none;
+        border-radius: 5px;
+        color: #ffffff;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+        margin: 10px;
+    }
+    button:hover:not(:disabled) {
+        background: #66ccff;
+        transform: scale(1.05);
+    }
+    @media (max-width: 600px) {
+        section { padding: 20px; }
+        h2 { font-size: 20px; }
+        .recommendation-card { padding: 10px; }
+        button { font-size: 14px; }
+    }
+</style>
+
+<div class="App">
+    <main>
+        <section>
+            <h2>Your Recommendations</h2>
+            <p class="info" id="season-info"></p>
+            <p class="error" id="error"></p>
+            <div id="recommendations"></div>
+            <div>
+                <button onclick="window.location.href='/traveler'">Start Over</button>
+                <button onclick="window.location.href='/home'">Back to Home</button>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>
+    const recommendationsDiv = document.getElementById('recommendations');
+    const seasonInfo = document.getElementById('season-info');
+    const errorDiv = document.getElementById('error');
+
+    function displayRecommendations() {
+        const data = JSON.parse(localStorage.getItem('recommendations')) || {};
+        seasonInfo.textContent = `Current Season: ${data.season || 'Unknown'}`;
+        
+        if (data.error) {
+            errorDiv.textContent = `Error: ${data.error}`;
+            return;
+        }
+
+        if (!data.recommendations || data.recommendations.length === 0) {
+            errorDiv.textContent = 'No recommendations found. Try different selections.';
+            return;
+        }
+
+        recommendationsDiv.innerHTML = '';
+        data.recommendations.forEach(rec => {
+            const card = document.createElement('div');
+            card.className = 'recommendation-card';
+            card.innerHTML = `
+                <p><strong>${rec.name}</strong></p>
+                <p>Score: ${(rec.score * 100).toFixed(1)}%</p>
+                <p>Weather: ${rec.weather.temperature}°C, ${rec.weather.description}</p>
+                <p>Location: Lat ${rec.location.lat}, Lon ${rec.location.lon}</p>
+                <p>${rec.description}</p>
+            `;
+            recommendationsDiv.appendChild(card);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', displayRecommendations);
+</script>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<style>
+    .profile-section {
+        padding: 40px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .profile-section h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
+    .profile-info {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+    .profile-info p {
+        font-size: 1.1em;
+        color: #ffffff;
+        margin: 10px 0;
+    }
+    .activity-history {
+        margin-top: 20px;
+    }
+    .activity-history h3 {
+        font-size: 1.5em;
+        color: #ffffff;
+        margin-bottom: 10px;
+    }
+    .activity-card {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        padding: 15px;
+        margin: 10px 0;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .activity-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 170, 255, 0.5);
+    }
+    .activity-card p {
+        color: #ffffff;
+        margin: 5px 0;
+    }
+    .no-data {
+        color: #ff5555;
+        font-size: 1em;
+        text-align: center;
+    }
+    @media (max-width: 600px) {
+        .profile-section { padding: 20px; }
+        .profile-section h2 { font-size: 20px; }
+        .activity-card { padding: 10px; }
+    }
+</style>
+
+<div class="App">
+    <main>
+        <section class="profile-section">
+            <h2>User Profile</h2>
+            <div class="profile-info">
+                <p><strong>Username:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                {% if user.username == 'admin' %}
+                    <p><strong>Role:</strong> Administrator</p>
+                {% else %}
+                    <p><strong>Role:</strong> User</p>
+                {% endif %}
+            </div>
+            <div class="activity-history">
+                <h3>Activity History</h3>
+                {% if activities %}
+                    {% for activity in activities %}
+                        <div class="activity-card">
+                            <p><strong>Attraction:</strong> {{ activity.attraction_name }}</p>
+                            <p><strong>Rating:</strong> {{ activity.rating }}</p>
+                            <p><strong>Visit Date:</strong> {{ activity.visit_date }}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="no-data">No activity history available.</p>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+</div>
+{% endblock %}

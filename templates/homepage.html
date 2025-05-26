@@ -1,0 +1,278 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<style>
+    .container {
+        padding: 2rem;
+        text-align: center;
+    }
+    .card {
+        background: rgba(255, 255, 255, 0.39);
+        border-radius: 10px;
+        width: 1150px;
+        padding: 1rem;
+        margin-left:-40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
+    }
+    .card-text {
+        flex: 1;
+        padding-right: 5rem;
+        text-align: left;
+    }
+    .card-image img {
+        width: 300px;
+        height: auto;
+        border-radius: 8px;
+
+    }
+    .card a {
+        color: rgb(2, 37, 54);
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .card a:hover {
+        color: #66ccff;
+    }
+    /* Slider Styles */
+    .slider {
+        position: relative;
+        width: 100%;
+        height: 600px;
+        overflow: hidden;
+        margin: 1rem auto;
+        border-radius: 10px;
+    }
+    .slider img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+    .slider img.active {
+        opacity: 1;
+    }
+    .slide-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.6);
+        padding: 20px 30px;
+        border-radius: 10px;
+        text-align: center;
+        color: #ffffff;
+        max-width: 90%;
+        z-index: 10; /* Ensure text stays above images */
+    }
+    .slide-text h2 {
+        margin: 0;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color:rgb(57, 231, 216);
+        text-shadow: 1px 1px 3px #000;
+    }
+    .slide-text p {
+        margin: 8px 0 0;
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+    .slider-controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        z-index: 11; /* Above text and images */
+    }
+    .slider-controls button {
+        background: rgba(1, 34, 51, 0.7);
+        border: none;
+        color: #ffffff;
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    .slider-controls button:hover {
+        background: rgb(22, 2, 94);
+    }
+    .slider-dots {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        z-index: 11; /* Above text and images */
+    }
+    .slider-dots .dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    .slider-dots .dot.active {
+        background: rgb(12, 0, 58);
+    }
+
+    .username{
+            text-align: left;
+            margin-left: 20px;
+            font-size: 1.2rem;
+    }
+    @media (max-width: 600px) {
+        .slider {
+            height: 400px;
+        }
+        .slide-text h2 {
+            font-size: 1.8rem;
+        }
+        .slide-text p {
+            font-size: 1rem;
+        }
+        .slide-text {
+            padding: 15px 20px;
+            max-width: 95%;
+        }
+        .card {
+            width: 100%;
+            margin: 0.5rem auto;
+        }
+        
+    }
+</style>
+<div class="username">
+    <span class="text-white">Welcome, {{ current_user.username }}!</span>
+</div>
+
+<!-- Image Slider -->
+<div class="slider">
+
+    <div class="slide-text animate__animated animate__fadeIn">
+        <h2>SL-VOYAGER: Your Sri Lankan Journey</h2>
+        <p>Unlock personalized adventures, curated hotels, and insightful forecasts for an unforgettable trip.</p>
+    </div>
+    <div class="slider-controls">
+        <button onclick="prevSlide()">❮</button>
+        <button onclick="nextSlide()">❯</button>
+    </div>
+    <div class="slider-dots"></div>
+</div>
+
+<div class="container">
+    <div class="card animate__animated animate__fadeInUp">
+        <div class="card-text">
+            <h3>Attractions</h3>
+            <p>Discover top attractions tailored to your preferences and the current season in Sri Lanka.</p>
+            <a href="/traveler">Explore Attractions</a>
+        </div>
+        <div class="card-image">
+            <img src="https://images.pexels.com/photos/31001499/pexels-photo-31001499.jpeg" alt="Attractions">
+        </div>
+    </div>
+
+    <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+        <div class="card-text">
+            <h3>Hotels</h3>
+            <p>Find the best hotels with personalized options near your chosen destinations.</p>
+            <a href="/recommended">Find Hotels</a>
+        </div>
+        <div class="card-image">
+            <img src="https://images.pexels.com/photos/30379319/pexels-photo-30379319.jpeg" alt="Hotels">
+        </div>
+    </div>
+
+    <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+        <div class="card-text">
+            <h3>Forecast</h3>
+            <p>Access travel assistance via chatbot or explore seasonal forecasts for smarter planning.</p>
+            <a href="/forecast">Learn More</a>
+        </div>
+        <div class="card-image">
+            <img src="https://images.pexels.com/photos/1998439/pexels-photo-1998439.jpeg" alt="Forecast">
+        </div>
+    </div>
+</div>
+
+<script>
+// Pexels API setup (use your own API key in production)
+const pexelsApiKey = 'HpLa0UJwJdnSIGZ8hvefPlttzgPTOqoTkMkwihwECufrmo5z4oYFmZ4S'; // Replace with actual key
+const images = [
+    'https://images.pexels.com/photos/31039336/pexels-photo-31039336.jpeg', // Sigiriya
+    'https://images.pexels.com/photos/31018699/pexels-photo-31018699.jpeg', // Galle Fort
+    'https://images.pexels.com/photos/30858001/pexels-photo-30858001.jpeg', // Sri Lankan beach
+    'https://images.pexels.com/photos/1072531/pexels-photo-1072531.jpeg', // Temple
+    'https://images.pexels.com/photos/30703675/pexels-photo-30703675.jpeg' // Tea plantations
+];
+
+// Slider functionality
+let currentSlide = 0;
+const slider = document.querySelector('.slider');
+const dotsContainer = document.querySelector('.slider-dots');
+
+// Create slider images and dots
+function initSlider() {
+    images.forEach((image, index) => {
+        const img = document.createElement('img');
+        img.src = image;
+        img.alt = `Sri Lanka Attraction ${index + 1}`;
+        if (index === 0) img.classList.add('active');
+        slider.insertBefore(img, slider.querySelector('.slider-controls'));
+
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        if (index === 0) dot.classList.add('active');
+        dot.onclick = () => goToSlide(index);
+        dotsContainer.appendChild(dot);
+    });
+}
+
+function showSlide(index) {
+    const slides = document.querySelectorAll('.slider img');
+    const dots = document.querySelectorAll('.slider-dots .dot');
+    if (index >= slides.length) currentSlide = 0;
+    if (index < 0) currentSlide = slides.length - 1;
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+    currentSlide++;
+    showSlide(currentSlide);
+}
+
+function prevSlide() {
+    currentSlide--;
+    showSlide(currentSlide);
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    showSlide(index);
+}
+
+// Auto-slide every 5 seconds
+setInterval(nextSlide, 5000);
+
+// Initialize slider
+document.addEventListener('DOMContentLoaded', () => {
+    initSlider();
+});
+</script>
+{% endblock %}

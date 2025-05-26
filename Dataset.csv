@@ -1,0 +1,140 @@
+Event_ID,Event_Type,Venue_Name,Venue_Type,Location,Capacity,Budget_Range,Guest_Count,Amenities,Availability,Theme,Special_Requirements,User_Rating
+1,Seminar,Srilankan Tented Camp,Restaurant,Batticaloa,226,LKR 352585,133,"AV Equipment, Parking, Restrooms, Catering Services, Sound System, Projector",Not Available,Outdoor,None,2.8
+2,Corporate Event,Cinnamon Grand Colombo,Restaurant,Jaffna,221,LKR 232756,185,"Restrooms, AV Equipment, Catering Services",Not Available,Cultural,None,3.3
+3,Conference,Dambulla Heritage Resort,Cultural Center,Batticaloa,289,LKR 488882,53,"Parking, Wi-Fi, Sound System, Restrooms, AV Equipment, Projector, Outdoor Space, Catering Services",Available,Cultural,Pet-Friendly,4.4
+4,Party,Jetwing Beach,Banquet Hall,Anuradhapura,151,LKR 367682,253,"Restrooms, Wi-Fi",Available,Casual,Accessible,4.6
+5,Birthday Party,The Blue Water,Conference Center,Negombo,171,LKR 318081,91,"Catering Services, AV Equipment, Projector, Sound System",Not Available,Formal,Pet-Friendly,3.7
+6,Conference,The Grand Hotel Nuwara Eliya,Hotel,Anuradhapura,198,LKR 462040,116,"Sound System, Catering Services, AV Equipment, Parking, Restrooms, Wi-Fi, Outdoor Space",Available,Formal,Accessible,3.9
+7,Seminar,Anantaya Resorts & Spa,Cultural Center,Colombo,96,LKR 314104,215,"Sound System, Outdoor Space, Parking, Restrooms, Catering Services, AV Equipment, Projector",Available,Outdoor,Pet-Friendly,2.8
+8,Exhibition,Kandalama Hotel,Outdoor Space,Jaffna,275,LKR 286822,73,"Restrooms, Parking",Available,Beach,None,2.7
+9,Wedding,Cinnamon Bey Beruwala,Restaurant,Batticaloa,149,LKR 239450,159,"Sound System, Catering Services, Restrooms, Outdoor Space, AV Equipment",Not Available,Outdoor,Pet-Friendly,3.2
+10,Seminar,Club Koggala Village,Hotel,Nuwara Eliya,364,LKR 415046,198,"Restrooms, Sound System, Outdoor Space",Available,Formal,Accessible,3.8
+11,Conference,Dambulla Heritage Resort,Banquet Hall,Nuwara Eliya,179,LKR 235678,60,"Restrooms, AV Equipment, Projector, Outdoor Space",Not Available,Casual,Accessible,2.8
+12,Party,Hikkaduwa Beach Resort,Outdoor Space,Colombo,462,LKR 282221,268,Sound System,Not Available,Casual,Pet-Friendly,3.7
+13,Birthday Party,Hotel Elephant Park,Hotel,Dambulla,341,LKR 164288,221,"Wi-Fi, Restrooms",Available,Beach,None,3.1
+14,Corporate Event,Hikka Tranz,Outdoor Space,Kandy,446,LKR 161093,192,"Outdoor Space, Restrooms, Parking",Not Available,Cultural,Pet-Friendly,3.3
+15,Seminar,Tamarind Tree Hotel,Restaurant,Galle,221,LKR 477518,243,"Sound System, Catering Services, Wi-Fi, Outdoor Space, AV Equipment",Available,Beach,Pet-Friendly,4.4
+16,Exhibition,The Islander,Hotel,Dambulla,154,LKR 434762,291,"Catering Services, Projector, Wi-Fi, Restrooms, Outdoor Space",Not Available,Beach,None,4.1
+17,Birthday Party,Sierra Beach Hotel,Beach Resort,Anuradhapura,142,LKR 449809,270,"Catering Services, Wi-Fi, Sound System, Outdoor Space, AV Equipment",Available,Beach,None,3.7
+18,Wedding,Ceylon Tea Museum,Banquet Hall,Batticaloa,407,LKR 466530,246,"Outdoor Space, AV Equipment, Wi-Fi, Parking",Available,Cultural,Accessible,2.5
+19,Wedding,Weligama Bay Marriott Resort & Spa,Outdoor Space,Dambulla,79,LKR 72078,158,Parking,Available,Outdoor,None,3
+20,Party,Ozo Colombo,Beach Resort,Anuradhapura,336,LKR 58753,77,"Wi-Fi, Catering Services, AV Equipment",Not Available,Beach,None,4
+21,Wedding,Nuwara Eliya Golf Club,Cultural Center,Galle,318,LKR 68540,145,"Projector, Parking, AV Equipment, Sound System, Outdoor Space, Wi-Fi, Restrooms",Not Available,Cultural,None,3.6
+22,Exhibition,Thalpe Beach,Restaurant,Jaffna,386,LKR 325319,258,"Outdoor Space, Sound System, Catering Services, Restrooms",Available,Beach,None,3.4
+23,Corporate Event,Mirissa Water Sports,Banquet Hall,Negombo,275,LKR 327677,123,"Projector, Parking, Wi-Fi, Sound System, AV Equipment, Catering Services",Not Available,Cultural,Pet-Friendly,4.8
+24,Corporate Event,Srilankan Tented Camp,Hotel,Galle,356,LKR 216508,51,"Wi-Fi, Sound System, Catering Services, Projector, Parking",Available,Outdoor,Accessible,3.3
+25,Exhibition,Red Rock Villa,Outdoor Space,Batticaloa,78,LKR 375207,87,"Catering Services, Restrooms, Sound System, Wi-Fi",Available,Outdoor,None,3.4
+26,Birthday Party,Mahaweli Reach,Conference Center,Batticaloa,388,LKR 366476,221,"Wi-Fi, Catering Services, AV Equipment, Outdoor Space, Sound System, Projector",Not Available,Formal,Pet-Friendly,3
+27,Seminar,The Kingsbury,Conference Center,Colombo,54,LKR 480862,111,"Projector, Restrooms, Catering Services",Available,Formal,None,3.5
+28,Conference,Rangala House,Banquet Hall,Trincomalee,120,LKR 201147,169,"Projector, AV Equipment, Outdoor Space, Wi-Fi, Parking, Sound System, Restrooms, Catering Services",Not Available,Formal,Pet-Friendly,4.1
+29,Party,Villa Araliya,Banquet Hall,Anuradhapura,363,LKR 263732,90,"Outdoor Space, Restrooms, AV Equipment, Sound System, Parking, Projector, Catering Services",Not Available,Cultural,Accessible,4.6
+30,Exhibition,Sierra Beach Hotel,Beach Resort,Nuwara Eliya,169,LKR 304978,300,"Outdoor Space, Catering Services, Restrooms",Not Available,Formal,None,4
+31,Conference,Dambulla Heritage Resort,Beach Resort,Dambulla,59,LKR 469070,228,"Outdoor Space, Restrooms, AV Equipment, Projector, Wi-Fi",Available,Cultural,Accessible,3
+32,Exhibition,Hotel Nilaveli,Cultural Center,Colombo,297,LKR 218637,194,"Catering Services, Wi-Fi, Restrooms, Parking",Available,Formal,Pet-Friendly,4.1
+33,Wedding,Club Koggala Village,Conference Center,Nuwara Eliya,466,LKR 373989,285,"Outdoor Space, Parking, Projector, AV Equipment, Sound System",Available,Beach,None,2.9
+34,Exhibition,Haritha Villas & Resorts,Outdoor Space,Batticaloa,294,LKR 116197,232,"Restrooms, Projector, Catering Services, AV Equipment, Outdoor Space, Wi-Fi",Not Available,Outdoor,None,4.3
+35,Seminar,The Kingsbury,Conference Center,Jaffna,158,LKR 421495,300,"Catering Services, Parking, Projector, Sound System, Outdoor Space, Restrooms, AV Equipment, Wi-Fi",Available,Beach,Pet-Friendly,4.1
+36,Party,Yala National Park Resort,Cultural Center,Galle,353,LKR 490462,174,Outdoor Space,Available,Beach,None,2.5
+37,Party,Red Rock Villa,Beach Resort,Kandy,437,LKR 97234,34,Restrooms,Available,Cultural,Pet-Friendly,5
+38,Corporate Event,Mirissa Hills,Hotel,Batticaloa,150,LKR 213938,57,"Catering Services, Wi-Fi, Sound System, Projector, Outdoor Space, Restrooms",Not Available,Casual,None,2.7
+39,Conference,Club Koggala Village,Cultural Center,Nuwara Eliya,445,LKR 305660,286,"Sound System, Outdoor Space, AV Equipment, Parking, Restrooms",Not Available,Cultural,None,2.8
+40,Seminar,Taj Samudra,Restaurant,Trincomalee,369,LKR 464291,185,"Outdoor Space, Projector",Not Available,Beach,Pet-Friendly,4.7
+41,Corporate Event,Heritance Tea Factory,Conference Center,Dambulla,245,LKR 446417,133,Projector,Not Available,Outdoor,None,4.9
+42,Corporate Event,Haritha Villas & Resorts,Beach Resort,Galle,358,LKR 369365,276,"Parking, Projector, AV Equipment, Sound System",Available,Outdoor,None,2.6
+43,Conference,Hotel Nilaveli,Banquet Hall,Galle,96,LKR 165170,66,"Outdoor Space, AV Equipment, Wi-Fi, Parking, Projector, Restrooms, Catering Services",Not Available,Beach,Pet-Friendly,4.6
+44,Corporate Event,Tamarind Tree Hotel,Banquet Hall,Kandy,307,LKR 486303,297,"Parking, Projector, Outdoor Space, AV Equipment, Catering Services, Restrooms",Available,Outdoor,Accessible,4.9
+45,Wedding,Mahaweli River View,Banquet Hall,Colombo,300,LKR 374299,251,"Projector, Parking, Sound System, AV Equipment, Catering Services, Outdoor Space",Available,Outdoor,None,4
+46,Party,Ceylon Tea Museum,Restaurant,Dambulla,82,LKR 74121,223,"Projector, Wi-Fi, Catering Services, Outdoor Space, Sound System, Restrooms, Parking",Available,Outdoor,Pet-Friendly,4.6
+47,Exhibition,Ceylon Tea Museum,Banquet Hall,Nuwara Eliya,393,LKR 403136,199,"Restrooms, Projector, AV Equipment, Catering Services, Wi-Fi, Parking, Outdoor Space, Sound System",Not Available,Beach,None,3.8
+48,Corporate Event,Yala National Park Resort,Hotel,Jaffna,236,LKR 473248,228,"Parking, Projector, AV Equipment, Wi-Fi",Not Available,Formal,Pet-Friendly,4.2
+49,Corporate Event,Red Rock Villa,Banquet Hall,Galle,415,LKR 471378,169,"Wi-Fi, Sound System, Outdoor Space",Not Available,Casual,Accessible,4.2
+50,Exhibition,Srilankan Tented Camp,Cultural Center,Trincomalee,348,LKR 50841,196,Wi-Fi,Available,Beach,None,3.9
+51,Party,Mahaweli River View,Restaurant,Galle,84,LKR 315403,252,"Sound System, AV Equipment, Outdoor Space, Parking, Restrooms, Catering Services",Available,Casual,Pet-Friendly,4.5
+52,Wedding,Villa Araliya,Beach Resort,Dambulla,287,LKR 417668,96,"AV Equipment, Parking, Projector, Sound System, Outdoor Space",Available,Casual,None,2.8
+53,Party,The Summit,Restaurant,Galle,133,LKR 448985,154,"AV Equipment, Sound System, Catering Services, Restrooms",Available,Cultural,Accessible,4.9
+54,Corporate Event,Hikka Tranz,Outdoor Space,Negombo,450,LKR 95189,171,"AV Equipment, Projector, Sound System, Restrooms",Available,Outdoor,None,3.7
+55,Corporate Event,Hikka Tranz,Banquet Hall,Galle,209,LKR 112896,158,Wi-Fi,Available,Cultural,Accessible,4
+56,Wedding,Amethyst Resort,Restaurant,Dambulla,353,LKR 317501,67,"Projector, Parking, Restrooms, Sound System, Wi-Fi, Catering Services, AV Equipment",Available,Outdoor,Pet-Friendly,3.7
+57,Conference,Vibrant Hill Hotel,Hotel,Galle,214,LKR 216823,191,"AV Equipment, Parking, Wi-Fi, Catering Services, Sound System, Restrooms",Available,Beach,Accessible,3.3
+58,Seminar,Anantaya Resorts & Spa,Restaurant,Anuradhapura,410,LKR 408299,274,"Sound System, Projector, Wi-Fi, Parking, AV Equipment, Catering Services, Outdoor Space",Not Available,Formal,Accessible,4.6
+59,Corporate Event,The Planters Bungalow,Beach Resort,Batticaloa,114,LKR 320587,91,"Sound System, Projector, Catering Services, Outdoor Space, Wi-Fi",Not Available,Casual,Pet-Friendly,3.6
+60,Conference,Saman Villas,Hotel,Jaffna,392,LKR 84422,252,"Projector, Outdoor Space, Parking, Sound System, AV Equipment",Available,Formal,Accessible,4.9
+61,Wedding,Arugam Bay Surf Camp,Restaurant,Kandy,426,LKR 138087,127,"Restrooms, AV Equipment, Sound System, Projector, Catering Services",Available,Formal,None,4.6
+62,Corporate Event,The Blue Water,Cultural Center,Nuwara Eliya,499,LKR 345314,216,"Projector, Parking, Sound System, AV Equipment, Wi-Fi, Restrooms, Catering Services",Not Available,Cultural,Accessible,4.3
+63,Wedding,The Mangrove Hotel,Hotel,Nuwara Eliya,261,LKR 159688,261,"Sound System, Outdoor Space, Restrooms, Parking, Wi-Fi",Not Available,Outdoor,Accessible,4.4
+64,Exhibition,Nuwara Eliya Golf Club,Banquet Hall,Colombo,459,LKR 192676,154,Restrooms,Not Available,Outdoor,Pet-Friendly,3
+65,Exhibition,The Grand Hotel Nuwara Eliya,Cultural Center,Anuradhapura,83,LKR 477818,256,"Sound System, Catering Services",Not Available,Cultural,None,3.7
+66,Party,Paradise Beach Hotel,Outdoor Space,Nuwara Eliya,297,LKR 198754,276,"Wi-Fi, AV Equipment, Projector, Sound System, Restrooms, Parking, Outdoor Space, Catering Services",Not Available,Casual,Accessible,3.9
+67,Birthday Party,Tamarind Tree Hotel,Banquet Hall,Nuwara Eliya,415,LKR 56913,279,"AV Equipment, Catering Services, Sound System, Restrooms, Outdoor Space, Parking",Available,Cultural,Accessible,4.4
+68,Seminar,The Kingsbury,Cultural Center,Dambulla,119,LKR 373687,90,Catering Services,Available,Casual,Accessible,2.7
+69,Wedding,Thalpe Beach,Outdoor Space,Anuradhapura,179,LKR 183028,191,Wi-Fi,Available,Cultural,None,2.8
+70,Wedding,The Islander,Cultural Center,Jaffna,423,LKR 78997,168,"AV Equipment, Parking, Sound System, Restrooms, Wi-Fi, Catering Services, Outdoor Space",Available,Casual,Pet-Friendly,3.7
+71,Seminar,Mahaweli River View,Cultural Center,Anuradhapura,260,LKR 334639,195,"Sound System, Outdoor Space, AV Equipment, Restrooms",Not Available,Outdoor,None,3.4
+72,Seminar,Hikka Tranz,Conference Center,Negombo,418,LKR 468962,87,"Restrooms, Parking, Sound System, Outdoor Space, AV Equipment, Projector, Catering Services",Not Available,Formal,None,3.8
+73,Birthday Party,Ozo Colombo,Cultural Center,Jaffna,406,LKR 139319,36,"Outdoor Space, Parking, Wi-Fi, Restrooms, Sound System, Catering Services, AV Equipment",Not Available,Outdoor,Pet-Friendly,3.9
+74,Seminar,Mirissa Water Sports,Banquet Hall,Nuwara Eliya,133,LKR 421638,257,"Outdoor Space, Catering Services, Sound System, Wi-Fi, Projector",Available,Formal,Pet-Friendly,3.1
+75,Birthday Party,Club Koggala Village,Beach Resort,Negombo,384,LKR 252820,226,Catering Services,Not Available,Beach,Pet-Friendly,2.6
+76,Party,Hikkaduwa Beach Resort,Outdoor Space,Colombo,462,LKR 282221,268,Sound System,Not Available,Casual,Pet-Friendly,3.7
+77,Birthday Party,Hotel Elephant Park,Hotel,Dambulla,341,LKR 164288,221,"Wi-Fi, Restrooms",Available,Beach,None,3.1
+78,Corporate Event,Hikka Tranz,Outdoor Space,Kandy,446,LKR 161093,192,"Outdoor Space, Restrooms, Parking",Not Available,Cultural,Pet-Friendly,3.3
+79,Seminar,Tamarind Tree Hotel,Restaurant,Galle,221,LKR 477518,243,"Sound System, Catering Services, Wi-Fi, Outdoor Space, AV Equipment",Available,Beach,Pet-Friendly,4.4
+80,Exhibition,The Islander,Hotel,Dambulla,154,LKR 434762,291,"Catering Services, Projector, Wi-Fi, Restrooms, Outdoor Space",Not Available,Beach,None,4.1
+81,Birthday Party,Sierra Beach Hotel,Beach Resort,Anuradhapura,142,LKR 449809,270,"Catering Services, Wi-Fi, Sound System, Outdoor Space, AV Equipment",Available,Beach,None,3.7
+82,Wedding,Ceylon Tea Museum,Banquet Hall,Batticaloa,407,LKR 466530,246,"Outdoor Space, AV Equipment, Wi-Fi, Parking",Available,Cultural,Accessible,2.5
+83,Wedding,Weligama Bay Marriott Resort & Spa,Outdoor Space,Dambulla,79,LKR 72078,158,Parking,Available,Outdoor,None,3
+84,Party,Ozo Colombo,Beach Resort,Anuradhapura,336,LKR 58753,77,"Wi-Fi, Catering Services, AV Equipment",Not Available,Beach,None,4
+85,Wedding,Nuwara Eliya Golf Club,Cultural Center,Galle,318,LKR 68540,145,"Projector, Parking, AV Equipment, Sound System, Outdoor Space, Wi-Fi, Restrooms",Not Available,Cultural,None,3.6
+86,Exhibition,Thalpe Beach,Restaurant,Jaffna,386,LKR 325319,258,"Outdoor Space, Sound System, Catering Services, Restrooms",Available,Beach,None,3.4
+87,Corporate Event,Mirissa Water Sports,Banquet Hall,Negombo,275,LKR 327677,123,"Projector, Parking, Wi-Fi, Sound System, AV Equipment, Catering Services",Not Available,Cultural,Pet-Friendly,4.8
+88,Corporate Event,Srilankan Tented Camp,Hotel,Galle,356,LKR 216508,51,"Wi-Fi, Sound System, Catering Services, Projector, Parking",Available,Outdoor,Accessible,3.3
+89,Exhibition,Red Rock Villa,Outdoor Space,Batticaloa,78,LKR 375207,87,"Catering Services, Restrooms, Sound System, Wi-Fi",Available,Outdoor,None,3.4
+90,Birthday Party,Mahaweli Reach,Conference Center,Batticaloa,388,LKR 366476,221,"Wi-Fi, Catering Services, AV Equipment, Outdoor Space, Sound System, Projector",Not Available,Formal,Pet-Friendly,3
+91,Seminar,The Kingsbury,Conference Center,Colombo,54,LKR 480862,111,"Projector, Restrooms, Catering Services",Available,Formal,None,3.5
+92,Conference,Rangala House,Banquet Hall,Trincomalee,120,LKR 201147,169,"Projector, AV Equipment, Outdoor Space, Wi-Fi, Parking, Sound System, Restrooms, Catering Services",Not Available,Formal,Pet-Friendly,4.1
+93,Party,Villa Araliya,Banquet Hall,Anuradhapura,363,LKR 263732,90,"Outdoor Space, Restrooms, AV Equipment, Sound System, Parking, Projector, Catering Services",Not Available,Cultural,Accessible,4.6
+94,Exhibition,Sierra Beach Hotel,Beach Resort,Nuwara Eliya,169,LKR 304978,300,"Outdoor Space, Catering Services, Restrooms",Not Available,Formal,None,4
+95,Conference,Dambulla Heritage Resort,Beach Resort,Dambulla,59,LKR 469070,228,"Outdoor Space, Restrooms, AV Equipment, Projector, Wi-Fi",Available,Cultural,Accessible,3
+96,Exhibition,Hotel Nilaveli,Cultural Center,Colombo,297,LKR 218637,194,"Catering Services, Wi-Fi, Restrooms, Parking",Available,Formal,Pet-Friendly,4.1
+97,Wedding,Club Koggala Village,Conference Center,Nuwara Eliya,466,LKR 373989,285,"Outdoor Space, Parking, Projector, AV Equipment, Sound System",Available,Beach,None,2.9
+98,Exhibition,Haritha Villas & Resorts,Outdoor Space,Batticaloa,294,LKR 116197,232,"Restrooms, Projector, Catering Services, AV Equipment, Outdoor Space, Wi-Fi",Not Available,Outdoor,None,4.3
+99,Seminar,The Kingsbury,Conference Center,Jaffna,158,LKR 421495,300,"Catering Services, Parking, Projector, Sound System, Outdoor Space, Restrooms, AV Equipment, Wi-Fi",Available,Beach,Pet-Friendly,4.1
+100,Party,Yala National Park Resort,Cultural Center,Galle,353,LKR 490462,174,Outdoor Space,Available,Beach,None,2.5
+101,Party,Red Rock Villa,Beach Resort,Kandy,437,LKR 97234,34,Restrooms,Available,Cultural,Pet-Friendly,5
+102,Corporate Event,Mirissa Hills,Hotel,Batticaloa,150,LKR 213938,57,"Catering Services, Wi-Fi, Sound System, Projector, Outdoor Space, Restrooms",Not Available,Casual,None,2.7
+103,Conference,Club Koggala Village,Cultural Center,Nuwara Eliya,445,LKR 305660,286,"Sound System, Outdoor Space, AV Equipment, Parking, Restrooms",Not Available,Cultural,None,2.8
+104,Party,Paradise Beach Hotel,Outdoor Space,Nuwara Eliya,297,LKR 198754,276,"Wi-Fi, AV Equipment, Projector, Sound System, Restrooms, Parking, Outdoor Space, Catering Services",Not Available,Casual,Accessible,3.9
+105,Birthday Party,Tamarind Tree Hotel,Banquet Hall,Nuwara Eliya,415,LKR 56913,279,"AV Equipment, Catering Services, Sound System, Restrooms, Outdoor Space, Parking",Available,Cultural,Accessible,4.4
+106,Seminar,The Kingsbury,Cultural Center,Dambulla,119,LKR 373687,90,Catering Services,Available,Casual,Accessible,2.7
+107,Wedding,Thalpe Beach,Outdoor Space,Anuradhapura,179,LKR 183028,191,Wi-Fi,Available,Cultural,None,2.8
+108,Wedding,The Islander,Cultural Center,Jaffna,423,LKR 78997,168,"AV Equipment, Parking, Sound System, Restrooms, Wi-Fi, Catering Services, Outdoor Space",Available,Casual,Pet-Friendly,3.7
+109,Seminar,Mahaweli River View,Cultural Center,Anuradhapura,260,LKR 334639,195,"Sound System, Outdoor Space, AV Equipment, Restrooms",Not Available,Outdoor,None,3.4
+110,Seminar,Hikka Tranz,Conference Center,Negombo,418,LKR 468962,87,"Restrooms, Parking, Sound System, Outdoor Space, AV Equipment, Projector, Catering Services",Not Available,Formal,None,3.8
+111,Birthday Party,Ozo Colombo,Cultural Center,Jaffna,406,LKR 139319,36,"Outdoor Space, Parking, Wi-Fi, Restrooms, Sound System, Catering Services, AV Equipment",Not Available,Outdoor,Pet-Friendly,3.9
+112,Seminar,Mirissa Water Sports,Banquet Hall,Nuwara Eliya,133,LKR 421638,257,"Outdoor Space, Catering Services, Sound System, Wi-Fi, Projector",Available,Formal,Pet-Friendly,3.1
+113,Birthday Party,Club Koggala Village,Beach Resort,Negombo,384,LKR 252820,226,Catering Services,Not Available,Beach,Pet-Friendly,2.6
+114,Party,Hikkaduwa Beach Resort,Outdoor Space,Colombo,462,LKR 282221,268,Sound System,Not Available,Casual,Pet-Friendly,3.7
+115,Birthday Party,Hotel Elephant Park,Hotel,Dambulla,341,LKR 164288,221,"Wi-Fi, Restrooms",Available,Beach,None,3.1
+116,Corporate Event,Hikka Tranz,Outdoor Space,Kandy,446,LKR 161093,192,"Outdoor Space, Restrooms, Parking",Not Available,Cultural,Pet-Friendly,3.3
+117,Seminar,Tamarind Tree Hotel,Restaurant,Galle,221,LKR 477518,243,"Sound System, Catering Services, Wi-Fi, Outdoor Space, AV Equipment",Available,Beach,Pet-Friendly,4.4
+118,Exhibition,The Islander,Hotel,Dambulla,154,LKR 434762,291,"Catering Services, Projector, Wi-Fi, Restrooms, Outdoor Space",Not Available,Beach,None,4.1
+119,Birthday Party,Sierra Beach Hotel,Beach Resort,Anuradhapura,142,LKR 449809,270,"Catering Services, Wi-Fi, Sound System, Outdoor Space, AV Equipment",Available,Beach,None,3.7
+120,Wedding,Ceylon Tea Museum,Banquet Hall,Batticaloa,407,LKR 466530,246,"Outdoor Space, AV Equipment, Wi-Fi, Parking",Available,Cultural,Accessible,2.5
+121,Birthday Party,The Blue Water,Conference Center,Negombo,171,LKR 308081,91,"Catering Services, AV Equipment, Projector, Sound System",Not Available,Formal,Pet-Friendly,3.7
+122,Conference,The Grand Hotel Nuwara Eliya,Hotel,Anuradhapura,198,LKR 452040,116,"Sound System, Catering Services, AV Equipment, Parking, Restrooms, Wi-Fi, Outdoor Space",Available,Formal,Accessible,3.9
+123,Seminar,Anantaya Resorts & Spa,Cultural Center,Colombo,96,LKR 284104,215,"Sound System, Outdoor Space, Parking, Restrooms, Catering Services, AV Equipment, Projector",Available,Outdoor,Pet-Friendly,2.8
+124,Exhibition,Kandalama Hotel,Outdoor Space,Jaffna,275,LKR 186822,73,"Restrooms, Parking",Available,Beach,None,2.7
+125,Wedding,Cinnamon Bey Beruwala,Restaurant,Batticaloa,149,LKR 309450,159,"Sound System, Catering Services, Restrooms, Outdoor Space, AV Equipment",Not Available,Outdoor,Pet-Friendly,3.2
+126,Seminar,Club Koggala Village,Hotel,Nuwara Eliya,364,LKR 415046,198,"Restrooms, Sound System, Outdoor Space",Available,Formal,Accessible,3.8
+127,Conference,Dambulla Heritage Resort,Banquet Hall,Nuwara Eliya,179,LKR 205678,60,"Restrooms, AV Equipment, Projector, Outdoor Space",Not Available,Casual,Accessible,2.8
+128,Party,Hikkaduwa Beach Resort,Outdoor Space,Colombo,462,LKR 282221,268,Sound System,Not Available,Casual,Pet-Friendly,3.7
+129,Birthday Party,Hotel Elephant Park,Hotel,Dambulla,341,LKR 154288,221,"Wi-Fi, Restrooms",Available,Beach,None,3.1
+130,Corporate Event,Hikka Tranz,Outdoor Space,Kandy,446,LKR 131090,192,"Outdoor Space, Restrooms, Parking",Not Available,Cultural,Pet-Friendly,3.3
+131,Seminar,Tamarind Tree Hotel,Restaurant,Galle,221,LKR 457510,243,"Sound System, Catering Services, Wi-Fi, Outdoor Space, AV Equipment",Available,Beach,Pet-Friendly,4.4
+132,Exhibition,The Islander,Hotel,Dambulla,154,LKR 414762,291,"Catering Services, Projector, Wi-Fi, Restrooms, Outdoor Space",Not Available,Beach,None,4.1
+133,Birthday Party,Sierra Beach Hotel,Beach Resort,Anuradhapura,142,LKR 409809,270,"Catering Services, Wi-Fi, Sound System, Outdoor Space, AV Equipment",Available,Beach,None,3.7
+134,Wedding,Ceylon Tea Museum,Banquet Hall,Batticaloa,407,LKR 446530,246,"Outdoor Space, AV Equipment, Wi-Fi, Parking",Available,Cultural,Accessible,2.5
+135,Wedding,Weligama Bay Marriott Resort & Spa,Outdoor Space,Dambulla,79,LKR 70078,158,Parking,Available,Outdoor,None,3
+136,Party,Ozo Colombo,Beach Resort,Anuradhapura,336,LKR 55753,77,"Wi-Fi, Catering Services, AV Equipment",Not Available,Beach,None,4
+137,Wedding,Nuwara Eliya Golf Club,Cultural Center,Galle,318,LKR 63540,145,"Projector, Parking, AV Equipment, Sound System, Outdoor Space, Wi-Fi, Restrooms",Not Available,Cultural,None,3.6
+138,Exhibition,Thalpe Beach,Restaurant,Jaffna,386,LKR 375319,258,"Outdoor Space, Sound System, Catering Services, Restrooms",Available,Beach,None,3.4
+139,Corporate Event,Mirissa Water Sports,Banquet Hall,Negombo,275,LKR 377677,123,"Projector, Parking, Wi-Fi, Sound System, AV Equipment, Catering Services",Not Available,Cultural,Pet-Friendly,4.8

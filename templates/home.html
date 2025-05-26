@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="homepage-container animate__animated animate__fadeIn">
+    <!-- Hero Section -->
+    <section class="hero-section text-center py-5" style="background: linear-gradient(135deg, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9)); border-radius: 15px;">
+        <div class="container py-5">
+            <h1 class="display-4 fw-bold text-white mb-4">
+                <i class="fas fa-map-marker-alt me-2"></i>Find Your Perfect Event Venue
+            </h1>
+            <p class="lead text-white mb-5">
+                Our intelligent system matches your event requirements with the best venues in town
+            </p>
+            <a href="/recommended" class="btn btn-light btn-lg px-4 py-2 pulse">
+                <i class="fas fa-search-location me-2"></i>Find Venues Now
+            </a>
+        </div>
+    </section>
+
+ 
+    <section class="how-it-works py-5 my-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">
+                <i class="fas fa-magic me-2 text-primary"></i>How VenueMatch Works
+            </h2>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-circle bg-primary text-white mb-4 mx-auto">
+                                <i class="fas fa-edit fa-2x"></i>
+                            </div>
+                            <h4 class="fw-bold">1. Tell Us About Your Event</h4>
+                            <p class="text-muted">
+                                Share details like event type, guest count, budget, and any special requirements.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-circle bg-success text-white mb-4 mx-auto">
+                                <i class="fas fa-brain fa-2x"></i>
+                            </div>
+                            <h4 class="fw-bold">2. Our AI Does The Work</h4>
+                            <p class="text-muted">
+                                Our intelligent algorithm analyzes hundreds of venues to find your perfect match.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-circle bg-info text-white mb-4 mx-auto">
+                                <i class="fas fa-list-ul fa-2x"></i>
+                            </div>
+                            <h4 class="fw-bold">3. Get Personalized Results</h4>
+                            <p class="text-muted">
+                                Receive a curated list of venues ranked by how well they match your needs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ 
+    <section class="features py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">
+                <i class="fas fa-star me-2 text-warning"></i>Why Choose  Us
+            </h2>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="feature-item d-flex mb-4">
+                        <div class="feature-icon bg-primary text-white rounded-circle me-4">
+                            <i class="fas fa-bolt fa-2x"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold">Smart Matching</h4>
+                            <p class="text-muted mb-0">
+                                Our algorithm considers dozens of factors to find venues that truly fit your event.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item d-flex mb-4">
+                        <div class="feature-icon bg-success text-white rounded-circle me-4">
+                            <i class="fas fa-database fa-2x"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold">Comprehensive Database</h4>
+                            <p class="text-muted mb-0">
+                                Access to hundreds of venues across all categories and price ranges.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item d-flex mb-4">
+                        <div class="feature-icon bg-info text-white rounded-circle me-4">
+                            <i class="fas fa-clock fa-2x"></i>
+                        </div>
+                        <div>
+                            <h4 class="fw-bold">Save Time</h4>
+                            <p class="text-muted mb-0">
+                                Find your perfect venue in minutes instead of days of research.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <img src="static/abc.jpeg" alt="Venue selection illustration" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+ 
+    <section class="cta-section text-center py-5 mb-5" style="background: linear-gradient(135deg, #2ecc71, #27ae60); border-radius: 15px;">
+        <div class="container py-4">
+            <h2 class="text-white fw-bold mb-4">Ready to Find Your Perfect Venue?</h2>
+            <p class="lead text-white mb-5">Get started now and let us do the hard work for you</p>
+            <a href="/recommended" class="btn btn-light btn-lg px-5 py-3 pulse">
+                <i class="fas fa-rocket me-2"></i>Start 
+            </a>
+        </div>
+    </section>
+</div>
+
+<style>
+    .homepage-container {
+        padding-top: 2rem;
+    }
+    
+    .hero-section {
+        margin-bottom: 5rem;
+        box-shadow: 0 15px 30px rgba(106, 17, 203, 0.3);
+    }
+    
+    .icon-circle {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+    
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .how-it-works .card {
+        transition: transform 0.3s ease;
+    }
+    
+    .how-it-works .card:hover {
+        transform: translateY(-10px);
+    }
+    
+    .testimonials .card {
+        transition: all 0.3s ease;
+    }
+    
+    .testimonials .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+    }
+    
+    .cta-section {
+        box-shadow: 0 15px 30px rgba(46, 204, 113, 0.3);
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,140 @@
+2025-05-25 00:50:05,277 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 00:50:06,790 - WARNING -  * Debugger is active!
+2025-05-25 00:50:06,795 - INFO -  * Debugger PIN: 134-193-037
+2025-05-25 00:51:19,426 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 00:51:20,942 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.8.184:5000
+2025-05-25 00:51:20,943 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-25 00:51:20,946 - INFO -  * Restarting with stat
+2025-05-25 00:51:22,656 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 00:51:24,033 - WARNING -  * Debugger is active!
+2025-05-25 00:51:24,037 - INFO -  * Debugger PIN: 134-193-037
+2025-05-25 00:51:28,563 - INFO - 127.0.0.1 - - [25/May/2025 00:51:28] "GET / HTTP/1.1" 200 -
+2025-05-25 00:51:28,604 - INFO - 127.0.0.1 - - [25/May/2025 00:51:28] "[33mGET /css/homepage.css HTTP/1.1[0m" 404 -
+2025-05-25 00:51:32,529 - INFO - 127.0.0.1 - - [25/May/2025 00:51:32] "[35m[1mGET /admin/events HTTP/1.1[0m" 500 -
+2025-05-25 00:51:32,689 - INFO - 127.0.0.1 - - [25/May/2025 00:51:32] "[36mGET /admin/events?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-25 00:51:32,699 - INFO - 127.0.0.1 - - [25/May/2025 00:51:32] "[36mGET /admin/events?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-25 00:51:32,806 - INFO - 127.0.0.1 - - [25/May/2025 00:51:32] "GET /admin/events?__debugger__=yes&cmd=resource&f=console.png&s=WPT6Ulz0gLqF5GAzmLKZ HTTP/1.1" 200 -
+2025-05-25 00:51:32,831 - INFO - 127.0.0.1 - - [25/May/2025 00:51:32] "[36mGET /admin/events?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-05-25 00:51:59,370 - INFO -  * Detected change in 'E:\\copyy2\\SLIIT 4th 2nd\\RP\\NEW_RESEARCH\\new-system\\backend\\app.py', reloading
+2025-05-25 00:51:59,600 - INFO -  * Restarting with stat
+2025-05-25 00:52:01,793 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 00:52:03,296 - WARNING -  * Debugger is active!
+2025-05-25 00:52:03,301 - INFO -  * Debugger PIN: 134-193-037
+2025-05-25 00:52:03,321 - INFO - 127.0.0.1 - - [25/May/2025 00:52:03] "GET /admin/events HTTP/1.1" 200 -
+2025-05-25 00:52:03,322 - INFO - 127.0.0.1 - - [25/May/2025 00:52:03] "GET /admin/events HTTP/1.1" 200 -
+2025-05-25 00:52:03,469 - INFO - 127.0.0.1 - - [25/May/2025 00:52:03] "GET /api/custom-events HTTP/1.1" 200 -
+2025-05-25 00:52:44,802 - INFO - Event created: vesak carnival
+2025-05-25 00:52:44,803 - INFO - 127.0.0.1 - - [25/May/2025 00:52:44] "[35m[1mPOST /api/custom-events HTTP/1.1[0m" 201 -
+2025-05-25 00:52:46,981 - INFO - 127.0.0.1 - - [25/May/2025 00:52:46] "GET /api/custom-events HTTP/1.1" 200 -
+2025-05-25 00:54:42,583 - INFO - 127.0.0.1 - - [25/May/2025 00:54:42] "GET /recommended HTTP/1.1" 200 -
+2025-05-25 00:54:42,679 - INFO - 127.0.0.1 - - [25/May/2025 00:54:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-25 00:54:49,210 - INFO - 127.0.0.1 - - [25/May/2025 00:54:49] "GET /traveler HTTP/1.1" 200 -
+2025-05-25 00:54:49,569 - INFO - 127.0.0.1 - - [25/May/2025 00:54:49] "GET /options HTTP/1.1" 200 -
+2025-05-25 00:55:21,898 - INFO - 127.0.0.1 - - [25/May/2025 00:55:21] "GET /traveler HTTP/1.1" 200 -
+2025-05-25 00:55:22,000 - INFO - 127.0.0.1 - - [25/May/2025 00:55:21] "GET /options HTTP/1.1" 200 -
+2025-05-25 00:55:22,783 - INFO - 127.0.0.1 - - [25/May/2025 00:55:22] "GET /traveler HTTP/1.1" 200 -
+2025-05-25 00:55:22,932 - INFO - 127.0.0.1 - - [25/May/2025 00:55:22] "GET /traveler HTTP/1.1" 200 -
+2025-05-25 00:55:23,086 - INFO - 127.0.0.1 - - [25/May/2025 00:55:23] "GET /traveler HTTP/1.1" 200 -
+2025-05-25 00:55:23,136 - INFO - 127.0.0.1 - - [25/May/2025 00:55:23] "GET /options HTTP/1.1" 200 -
+2025-05-25 00:55:23,325 - INFO - 127.0.0.1 - - [25/May/2025 00:55:23] "GET /traveler HTTP/1.1" 200 -
+2025-05-25 00:55:23,363 - INFO - 127.0.0.1 - - [25/May/2025 00:55:23] "GET /options HTTP/1.1" 200 -
+2025-05-25 00:57:35,216 - INFO -  * Detected change in 'E:\\copyy2\\SLIIT 4th 2nd\\RP\\NEW_RESEARCH\\new-system\\backend\\app.py', reloading
+2025-05-25 00:57:35,760 - INFO -  * Restarting with stat
+2025-05-25 00:57:37,713 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 00:57:40,191 - WARNING -  * Debugger is active!
+2025-05-25 00:57:40,195 - INFO -  * Debugger PIN: 134-193-037
+2025-05-25 00:58:10,744 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 00:58:12,060 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.8.184:5000
+2025-05-25 00:58:12,061 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-25 00:58:12,063 - INFO -  * Restarting with stat
+2025-05-25 00:58:13,645 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 00:58:14,891 - WARNING -  * Debugger is active!
+2025-05-25 00:58:14,895 - INFO -  * Debugger PIN: 134-193-037
+2025-05-25 00:58:21,405 - INFO - 127.0.0.1 - - [25/May/2025 00:58:21] "GET / HTTP/1.1" 200 -
+2025-05-25 00:58:21,459 - INFO - 127.0.0.1 - - [25/May/2025 00:58:21] "[33mGET /css/homepage.css HTTP/1.1[0m" 404 -
+2025-05-25 00:58:24,461 - INFO - 127.0.0.1 - - [25/May/2025 00:58:24] "GET /traveler HTTP/1.1" 200 -
+2025-05-25 00:58:24,817 - INFO - 127.0.0.1 - - [25/May/2025 00:58:24] "GET /options HTTP/1.1" 200 -
+2025-05-25 01:00:12,891 - INFO - 127.0.0.1 - - [25/May/2025 01:00:12] "GET /recommended HTTP/1.1" 200 -
+2025-05-25 01:00:13,052 - INFO - 127.0.0.1 - - [25/May/2025 01:00:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-25 01:00:26,901 - DEBUG - Starting new HTTPS connection (1): maps.googleapis.com:443
+2025-05-25 01:00:27,397 - DEBUG - https://maps.googleapis.com:443 "GET /maps/api/geocode/json?address=Galle&key=AIzaSyA2MXdyzbpEbtQZxVLdBFQUg9qO_3ASknI HTTP/1.1" 200 2164
+2025-05-25 01:00:27,399 - DEBUG - Starting new HTTPS connection (1): maps.googleapis.com:443
+2025-05-25 01:00:27,796 - DEBUG - https://maps.googleapis.com:443 "GET /maps/api/geocode/json?address=Batticaloa&key=AIzaSyA2MXdyzbpEbtQZxVLdBFQUg9qO_3ASknI HTTP/1.1" 200 2180
+2025-05-25 01:00:27,799 - DEBUG - Starting new HTTPS connection (1): maps.googleapis.com:443
+2025-05-25 01:00:28,220 - DEBUG - https://maps.googleapis.com:443 "GET /maps/api/geocode/json?address=Dambulla&key=AIzaSyA2MXdyzbpEbtQZxVLdBFQUg9qO_3ASknI HTTP/1.1" 200 2204
+2025-05-25 01:00:28,225 - INFO - 127.0.0.1 - - [25/May/2025 01:00:28] "POST /recommended HTTP/1.1" 200 -
+2025-05-25 01:00:28,263 - INFO - 127.0.0.1 - - [25/May/2025 01:00:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-05-25 01:02:16,302 - INFO -  * Detected change in 'E:\\copyy2\\SLIIT 4th 2nd\\RP\\NEW_RESEARCH\\new-system\\backend\\app.py', reloading
+2025-05-25 01:02:16,529 - INFO -  * Restarting with stat
+2025-05-25 01:02:18,558 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 01:02:20,173 - ERROR - Error loading model_data.pkl: 'season_mlb'
+2025-05-25 01:03:27,896 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 01:03:28,987 - ERROR - Error loading model_data.pkl: 'season_mlb'
+2025-05-25 01:06:39,143 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 01:06:41,027 - INFO - Loaded model_data.pkl with keys: ['rf_model', 'knn_model', 'traveler_mlb', 'activity_mlb']
+2025-05-25 01:06:41,203 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.8.184:5000
+2025-05-25 01:06:41,203 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-25 01:06:41,205 - INFO -  * Restarting with stat
+2025-05-25 01:06:42,919 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 01:06:44,134 - INFO - Loaded model_data.pkl with keys: ['rf_model', 'knn_model', 'traveler_mlb', 'activity_mlb']
+2025-05-25 01:06:44,272 - WARNING -  * Debugger is active!
+2025-05-25 01:06:44,277 - INFO -  * Debugger PIN: 134-193-037
+2025-05-25 01:06:52,583 - INFO - 127.0.0.1 - - [25/May/2025 01:06:52] "GET / HTTP/1.1" 200 -
+2025-05-25 01:06:52,617 - INFO - 127.0.0.1 - - [25/May/2025 01:06:52] "[33mGET /css/homepage.css HTTP/1.1[0m" 404 -
+2025-05-25 01:06:54,703 - INFO - 127.0.0.1 - - [25/May/2025 01:06:54] "GET /traveler HTTP/1.1" 200 -
+2025-05-25 01:06:55,091 - INFO - Loaded 32 traveler types and 51 activity types
+2025-05-25 01:06:55,092 - INFO - 127.0.0.1 - - [25/May/2025 01:06:55] "GET /options HTTP/1.1" 200 -
+2025-05-25 01:08:54,689 - INFO - 127.0.0.1 - - [25/May/2025 01:08:54] "[33mGET /events HTTP/1.1[0m" 404 -
+2025-05-25 01:08:59,986 - INFO - 127.0.0.1 - - [25/May/2025 01:08:59] "[35m[1mGET /admin/events HTTP/1.1[0m" 500 -
+2025-05-25 01:09:00,167 - INFO - 127.0.0.1 - - [25/May/2025 01:09:00] "[36mGET /admin/events?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-25 01:09:00,203 - INFO - 127.0.0.1 - - [25/May/2025 01:09:00] "[36mGET /admin/events?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-25 01:09:00,315 - INFO - 127.0.0.1 - - [25/May/2025 01:09:00] "GET /admin/events?__debugger__=yes&cmd=resource&f=console.png&s=i8dP9mK9s2D47cSz5SWh HTTP/1.1" 200 -
+2025-05-25 01:09:00,334 - INFO - 127.0.0.1 - - [25/May/2025 01:09:00] "[36mGET /admin/events?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-05-25 01:09:15,570 - INFO -  * Detected change in 'E:\\copyy2\\SLIIT 4th 2nd\\RP\\NEW_RESEARCH\\new-system\\backend\\app.py', reloading
+2025-05-25 01:09:15,869 - INFO -  * Restarting with stat
+2025-05-25 01:09:18,459 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 01:09:19,874 - INFO - Loaded model_data.pkl with keys: ['rf_model', 'knn_model', 'traveler_mlb', 'activity_mlb']
+2025-05-25 01:09:20,035 - WARNING -  * Debugger is active!
+2025-05-25 01:09:20,039 - INFO -  * Debugger PIN: 134-193-037
+2025-05-25 01:09:22,872 - INFO - 127.0.0.1 - - [25/May/2025 01:09:22] "GET /admin/events HTTP/1.1" 200 -
+2025-05-25 01:09:22,995 - INFO - 127.0.0.1 - - [25/May/2025 01:09:22] "GET /api/custom-events HTTP/1.1" 200 -
+2025-05-25 01:09:41,587 - INFO - Event created: lkhm
+2025-05-25 01:09:41,590 - INFO - 127.0.0.1 - - [25/May/2025 01:09:41] "[35m[1mPOST /api/custom-events HTTP/1.1[0m" 201 -
+2025-05-25 01:09:43,198 - INFO - 127.0.0.1 - - [25/May/2025 01:09:43] "GET /api/custom-events HTTP/1.1" 200 -
+2025-05-25 01:10:18,751 - INFO - 127.0.0.1 - - [25/May/2025 01:10:18] "[31m[1mGET /recommends HTTP/1.1[0m" 405 -
+2025-05-25 01:11:38,983 - INFO -  * Detected change in 'E:\\copyy2\\SLIIT 4th 2nd\\RP\\NEW_RESEARCH\\new-system\\backend\\app.py', reloading
+2025-05-25 01:11:39,207 - INFO -  * Restarting with stat
+2025-05-25 01:11:41,829 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 01:14:49,579 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 01:14:50,959 - WARNING -  * Debugger is active!
+2025-05-25 01:14:50,964 - INFO -  * Debugger PIN: 134-193-037
+2025-05-25 01:15:01,374 - INFO - 127.0.0.1 - - [25/May/2025 01:15:01] "GET /traveler HTTP/1.1" 200 -
+2025-05-25 01:15:01,746 - INFO - Loaded 32 traveler types and 51 activity types
+2025-05-25 01:15:01,748 - INFO - 127.0.0.1 - - [25/May/2025 01:15:01] "GET /options HTTP/1.1" 200 -
+2025-05-25 01:15:54,245 - INFO -  * Detected change in 'E:\\copyy2\\SLIIT 4th 2nd\\RP\\NEW_RESEARCH\\new-system\\backend\\app.py', reloading
+2025-05-25 01:18:38,866 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 01:18:38,870 - ERROR - Error loading model_data.pkl: [Errno 2] No such file or directory: 'model_data.pkl'
+2025-05-25 01:19:40,753 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 01:19:43,438 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.8.184:5000
+2025-05-25 01:19:43,439 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-25 01:19:43,443 - INFO -  * Restarting with stat
+2025-05-25 01:19:45,753 - INFO - Database initialized successfully at E:\copyy2\SLIIT 4th 2nd\RP\NEW_RESEARCH\new-system\backend\events.db
+2025-05-25 01:19:50,250 - WARNING -  * Debugger is active!
+2025-05-25 01:19:50,256 - INFO -  * Debugger PIN: 134-193-037
+2025-05-25 01:19:53,909 - INFO - 127.0.0.1 - - [25/May/2025 01:19:53] "GET /traveler HTTP/1.1" 200 -
+2025-05-25 01:19:54,309 - INFO - Loaded 32 traveler types and 51 activity types
+2025-05-25 01:19:54,311 - INFO - 127.0.0.1 - - [25/May/2025 01:19:54] "GET /options HTTP/1.1" 200 -
+2025-05-25 01:20:14,767 - INFO -  * Detected change in 'E:\\copyy2\\SLIIT 4th 2nd\\RP\\NEW_RESEARCH\\new-system\\backend\\app.py', reloading
+2025-05-25 01:20:15,194 - INFO -  * Restarting with stat

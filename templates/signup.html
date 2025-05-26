@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block title %}Signup{% endblock %}
+{% block content %}
+<style>
+    .signup-section {
+        padding: 40px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    .signup-section h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+    .form-group label {
+        display: block;
+        color: #ffffff;
+        margin-bottom: 5px;
+        font-size: 1em;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        font-size: 1em;
+    }
+    .form-group input:focus {
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+    }
+    button {
+        padding: 10px 20px;
+        background: #00aaff;
+        border: none;
+        border-radius: 5px;
+        color: #ffffff;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+        display: block;
+        margin: 20px auto;
+        width: 200px;
+    }
+    button:hover:not(:disabled) {
+        background: #66ccff;
+        transform: scale(1.05);
+    }
+    button:disabled {
+        background: #555;
+        cursor: not-allowed;
+    }
+    .spinner {
+        width: 20px;
+        height: 20px;
+        border: 3px solid #fff;
+        border-top: 3px solid #00aaff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        display: none;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    .error {
+        color: #ff5555;
+        font-size: 16px;
+        text-align: center;
+        margin-top: 15px;
+    }
+    @media (max-width: 600px) {
+        .signup-section { padding: 20px; }
+        .signup-section h2 { font-size: 20px; }
+        button { font-size: 14px; width: 150px; }
+    }
+</style>
+
+<div class="App">
+    <main>
+        <section class="signup-section">
+            <h2>Signup</h2>
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+            <form method="POST" action="{{ url_for('register') }}">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">
+                    <span class="spinner" id="spinner"></span>
+                    Sign Up
+                </button>
+            </form>
+            <p style="color: #ffffff; margin-top: 15px;">
+                Already have an account? <a href="{{ url_for('login') }}" style="color: #00aaff;">Login</a>
+            </p>
+        </section>
+    </main>
+</div>
+
+<script>
+    document.querySelector('form').addEventListener('submit', () => {
+        document.getElementById('spinner').style.display = 'inline-block';
+        document.querySelector('button').disabled = true;
+    });
+</script>
+{% endblock %}

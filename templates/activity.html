@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+{% block title %}Activity Type{% endblock %}
+{% block content %}
+<style>
+    section {
+        padding: 40px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    .card-label {
+        cursor: pointer;
+        width: 200px;
+        text-align: center;
+    }
+    .card {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 170, 255, 0.5);
+    }
+    .card.selected {
+        background: rgba(0, 170, 255, 0.3);
+    }
+    .card-image {
+        width: 100%;
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+    }
+    .card-text {
+        display: block;
+        padding: 10px;
+        color: #ffffff;
+        font-size: 1em;
+    }
+    button {
+        padding: 10px 20px;
+        background: #00aaff;
+        border: none;
+        border-radius: 5px;
+        color: #ffffff;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+        margin: 10px;
+    }
+    button:hover:not(:disabled) {
+        background: #66ccff;
+        transform: scale(1.05);
+    }
+    button:disabled {
+        background: #555;
+        cursor: not-allowed;
+    }
+    .spinner {
+        width: 20px;
+        height: 20px;
+        border: 3px solid #fff;
+        border-top: 3px solid #00aaff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        display: none;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    .error, .loading {
+        color: #ff5555;
+        font-size: 16px;
+        margin: 15px 0;
+    }
+    .loading { color: #00aaff; }
+    input[type="checkbox"] {
+        display: none;
+    }
+    @media (max-width: 600px) {
+        section { padding: 20px; }
+        h2 { font-size: 20px; }
+        .card-label { width: 150px; }
+        .card-image { height: 100px; }
+        button { font-size: 14px; }
+    }
+</style>
+
+<div class="App">
+    <main>
+        <section>
+            <h2>Select Activity Type(s)</h2>
+            <p class="loading" id="loading">Loading activity types...</p>
+            <p class="error" id="error"></p>
+            <div class="cards-container" id="activity-types"></div>
+            <div>
+                <button id="back-button">Back</button>
+                <button id="submit-button" disabled>
+                    <span class="spinner" id="spinner"></span>
+                    Get Recommendations
+                </button>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>
+    const activityTypesDiv = document.getElementById('activity-types');
+    const backButton = document.getElementById('back-button');
+    const submitButton = document.getElementById('submit-button');
+    const spinner = document.getElementById('spinner');
+    const errorDiv = document.getElementById('error');
+    const loadingDiv = document.getElementById('loading');
+
+    let selectedActivityTypes = JSON.parse(localStorage.getItem('selectedActivityTypes')) || [];
+
+    async function loadActivityTypes() {
+        loadingDiv.style.display = 'block';
+        errorDiv.textContent = '';
+        activityTypesDiv.innerHTML = '';
+
+        try {
+            const response = await fetch('/options', { credentials: 'include' });
+            if (response.redirected) {
+                errorDiv.textContent = 'Please log in to view activity types.';
+                setTimeout(() => { window.location.href = '/login'; }, 2000);
+                return;
+            }
+            const data = await response.json();
+            loadingDiv.style.display = 'none';
+
+            if (data.error) {
+                errorDiv.textContent = `Error: ${data.error}`;
+                return;
+            }
+
+            data.activity_types.forEach(type => {
+                const label = document.createElement('label');
+                label.className = 'card-label';
+                label.innerHTML = `
+                    <input type="checkbox" value="${type}" ${selectedActivityTypes.includes(type) ? 'checked' : ''}>
+                    <div class="card ${selectedActivityTypes.includes(type) ? 'selected' : ''}">
+                        <div class="card-image" style="background-image: url('https://source.unsplash.com/200x175/?${type.toLowerCase().replace(' ', '-')})"></div>
+                        <span class="card-text">${type}</span>
+                    </div>
+                `;
+                label.querySelector('input').addEventListener('change', (e) => {
+                    const isChecked = e.target.checked;
+                    if (isChecked) {
+                        selectedActivityTypes.push(type);
+                    } else {
+                        selectedActivityTypes = selectedActivityTypes.filter(t => t !== type);
+                    }
+                    localStorage.setItem('selectedActivityTypes', JSON.stringify(selectedActivityTypes));
+                    label.querySelector('.card').classList.toggle('selected', isChecked);
+                    submitButton.disabled = selectedActivityTypes.length === 0;
+                });
+                activityTypesDiv.appendChild(label);
+            });
+            submitButton.disabled = selectedActivityTypes.length === 0;
+        } catch (err) {
+            loadingDiv.style.display = 'none';
+            errorDiv.textContent = 'Failed to load activity types. Please log in or try again.';
+            console.error('Error fetching activity types:', err);
+        }
+    }
+
+    backButton.addEventListener('click', () => {
+        window.location.href = '/traveler';
+    });
+
+    submitButton.addEventListener('click', async () => {
+        if (selectedActivityTypes.length === 0) {
+            errorDiv.textContent = 'Please select at least one activity type';
+            return;
+        }
+        spinner.style.display = 'inline-block';
+        submitButton.disabled = true;
+        localStorage.setItem('selectedActivityTypes', JSON.stringify(selectedActivityTypes));
+
+        const travelerTypes = JSON.parse(localStorage.getItem('selectedTravelerTypes')) || [];
+        if (travelerTypes.length === 0) {
+            errorDiv.textContent = 'No traveler types selected. Please go back and select at least one.';
+            spinner.style.display = 'none';
+            submitButton.disabled = false;
+            return;
+        }
+
+        try {
+            const response = await fetch('/recommends', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify({
+                    traveler_types: travelerTypes,
+                    activity_types: selectedActivityTypes
+                })
+            });
+            if (response.redirected) {
+                errorDiv.textContent = 'Please log in to get recommendations.';
+                setTimeout(() => { window.location.href = '/login'; }, 2000);
+                return;
+            }
+            const data = await response.json();
+            spinner.style.display = 'none';
+            submitButton.disabled = false;
+
+            if (data.error) {
+                errorDiv.textContent = `Error: ${data.error}`;
+                return;
+            }
+
+            localStorage.setItem('recommendations', JSON.stringify(data));
+            window.location.href = '/recommendations';
+        } catch (err) {
+            spinner.style.display = 'none';
+            submitButton.disabled = false;
+            errorDiv.textContent = 'Failed to get recommendations. Please try again.';
+            console.error('Error fetching recommendations:', err);
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', loadActivityTypes);
+</script>
+{% endblock %}
